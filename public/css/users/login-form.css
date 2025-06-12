@@ -1,0 +1,125 @@
+body {
+  background-color: #0f172a;
+  color: #a5b4fc;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.login-box {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #a5b4fc;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-control {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #ffffff;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+.form-control:focus {
+  background-color: #0f172a !important;
+  color: #ffffff;
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 2px rgba(165, 180, 252, 0.3);
+  outline: none;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #a5b4fc;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #a5b4fc;
+  opacity: 0.8;
+}
+
+.forgot-link {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.forgot-link a {
+  color: #a5b4fc;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.forgot-link a:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  height: 1px;
+  background-color: #334155;
+  margin: 25px 0;
+}
+
+.btn-signup {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #a5b4fc;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-signup:hover {
+  background-color: #a5b4fc;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .login-wrapper {
+    padding: 40px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login-box {
+    padding: 40px 20px;
+    max-width: 90%;
+  }
+}

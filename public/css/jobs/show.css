@@ -1,0 +1,147 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f172a;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.job-info {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.job-header {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #a5b4fc;
+    text-shadow: 1px 1px 10px #a5b4fc;
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a5b4fc;
+    margin-right: 15px;
+}
+
+.company-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.job-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.field .label {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: #dcdcdc;
+}
+
+.field .value {
+    font-size: 1rem;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge {
+    background: #a5b4fc;
+    color: #0d1b2a;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill-badge {
+    background-color: #a5b4fc;
+    color: #000;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.skill-badge:hover {
+    background-color: #848fc2;
+}
+
+.actions {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.actions button {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #a5b4fc;
+    color: #0d1b2a;
+}
+
+.btn-primary:hover {
+    background: #8692cf;
+}
+
+.btn-secondary {
+    background-color: #a5b4fc;
+    color: #000;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .job-info {
+        margin: 30px 20px;
+    }
+
+    .company-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .company-logo {
+        margin-bottom: 10px;
+    }
+}

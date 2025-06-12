@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="/css/users/jobs-applied.css" />
+
+<h1 class="section-title">Jobs You've Applied To</h1>
+
+<div class="jobs-container">
+  <% if (!user.appliedJobs || user.appliedJobs.length===0) { %>
+  <p class="no-jobs">
+    <i class="fa-solid fa-face-sad-tear" style="margin-right: 0.5rem"></i>You
+    haven’t applied to any jobs yet.
+  </p>
+  <% } else { %> <% user.appliedJobs.forEach(function(job) { %> <% const
+  myApplication = job.applicants.find(app => app.user.toString() ===
+  user._id.toString()); %>
+  <div class="job-card">
+    <% if (myApplication) { %>
+    <p>
+      Status:
+      <span
+        class="status-badge <%= myApplication.applicationStatus.toLowerCase() %>"
+        ><%= myApplication.applicationStatus %></span
+      >
+    </p>
+    <% } else { %>
+    <p>You haven't applied to this job.</p>
+    <% } %>
+
+    <div>
+      <div class="job-title">
+        <i class="fa-solid fa-briefcase me-2"></i> <%= job.role %>
+      </div>
+      <div class="company">
+        <i class="fa-solid fa-building me-2"></i> <%= job.company %>
+      </div>
+      <div class="location">
+        <i class="fa-solid fa-location-dot me-2"></i> <%= job.location %>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge <%= job.status %>"><%= job.status %></span>
+      <span class="badge <%= job.category %>"><%= job.category %></span>
+      <span class="badge"><%= job.jobType %></span>
+    </div>
+
+    <div class="salary">
+      <i class="fa-solid fa-sack-dollar me-1"></i> ₹<%=
+      formatIndianCurrency(job.salary) %> / month
+    </div>
+
+    <div class="job-footer">
+      <a href="/job/<%= job._id %>" class="view-link"
+        >View Details <i class="fa-solid fa-arrow-right ms-1"></i
+      ></a>
+      <form
+        action="/user/<%= user._id %>/unregister-job/<%= job._id %>?_method=DELETE"
+        method="POST"
+        style="display: inline"
+      >
+        <button type="submit" class="delete-link" title="Remove Application">
+          <i class="fa-solid fa-trash"></i> Unregister
+        </button>
+      </form>
+    </div>
+  </div>
+  <% }); %> <% } %>
+</div>
+
+<% function formatIndianCurrency(num) { return
+Number(num).toLocaleString('en-IN'); } %>

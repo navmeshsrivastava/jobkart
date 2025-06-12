@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/css/users/jobs-posted.css" />
+
+<div class="section-header">
+  <h1 class="section-title">Jobs You've Posted</h1>
+  <a href="/job/create" class="create-btn"
+    ><i class="fa-solid fa-circle-plus"></i> Create New Job</a
+  >
+</div>
+
+<div class="jobs-container">
+  <% if (!user.postedJobs || user.postedJobs.length === 0) { %>
+  <p class="no-jobs">
+    <i class="fa-solid fa-face-sad-tear" style="margin-right: 0.5rem"></i>You
+    haven’t posted any jobs yet.
+  </p>
+  <% } else { %> <% user.postedJobs.forEach(function(job) { %>
+  <div class="job-card">
+    <a href="/job/<%= job._id %>" class="card-wrapper">
+      <div class="job-title">
+        <i class="fa-solid fa-briefcase me-2"></i><%= job.role %>
+      </div>
+      <div class="location">
+        <i class="fa-solid fa-location-dot me-2"></i><%= job.location %>
+      </div>
+
+      <div class="badges">
+        <span class="badge <%= job.status %>"><%= job.status %></span>
+        <span class="badge <%= job.category %>"><%= job.category %></span>
+        <span class="badge"><%= job.jobType %></span>
+      </div>
+
+      <div class="salary">
+        <i class="fa-solid fa-sack-dollar me-1"></i> ₹<%=
+        formatIndianCurrency(job.salary) %> per month
+      </div>
+
+      <div class="applicants">
+        <i class="fa-solid fa-users me-1"></i>
+        <%= job.applicants.length %> applicant<%= job.applicants.length !== 1 ?
+        's' : '' %>
+      </div>
+    </a>
+
+    <div class="job-footer">
+      <a href="/job/<%= job._id %>/applicants" class="view-applicants"
+        >View Applicants</a
+      >
+      <div class="footer-left">
+        <a href="/job/<%= job._id %>/edit" class="edit-link" title="Edit Job"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></a>
+        <form
+          action="/user/<%= user._id %>/delete-job/<%= job._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="delete-link" title="Delete Job">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% }); %> <% } %>
+</div>
+
+<% function formatIndianCurrency(num) { return
+Number(num).toLocaleString('en-IN'); } %>

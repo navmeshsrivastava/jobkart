@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="/css/jobs/job-form.css" />
+
+<div class="form-container">
+  <div class="form-title"><i class="fas fa-briefcase"></i> Post a Job</div>
+
+  <form
+    action="/job/create"
+    method="POST"
+    class="needs-validation"
+    novalidate
+    autocomplete="off"
+  >
+    <div class="form-group">
+      <label for="role" class="form-label"
+        ><i class="fa-solid fa-user-tie form-icon"></i>Role</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="role"
+        name="job[role]"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="company" class="form-label"
+        ><i class="fa-solid fa-building form-icon"></i>Company</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="company"
+        name="job[company]"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="location" class="form-label"
+        ><i class="fa-solid fa-location-dot form-icon"></i>Location</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="job[location]"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="salary" class="form-label"
+        ><i class="fa-solid fa-sack-dollar form-icon"></i>Salary</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="salary"
+        name="job[salary]"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category" class="form-label"
+        ><i class="fa-solid fa-layer-group form-icon"></i>Category</label
+      >
+      <select class="form-select" id="category" name="job[category]" required>
+        <option value="">Select Category</option>
+        <option value="job">Job</option>
+        <option value="internship">Internship</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="jobType" class="form-label"
+        ><i class="fa-solid fa-briefcase form-icon"></i>Job Type</label
+      >
+      <select class="form-select" id="jobType" name="job[jobType]" required>
+        <option value="">Select Type</option>
+        <option value="On-site">On-site</option>
+        <option value="Remote">Remote</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="skills" class="form-label"
+        ><i class="fa-solid fa-code form-icon"></i>Skills (comma
+        separated)</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="skills"
+        name="job[skills]"
+        placeholder="e.g. JavaScript, MongoDB, React"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description" class="form-label"
+        ><i class="fa-solid fa-align-left form-icon"></i>Description</label
+      >
+      <textarea
+        class="form-control"
+        id="description"
+        name="job[description]"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn-submit">
+        <i class="fa-solid fa-paper-plane"></i> Post Job
+      </button>
+    </div>
+  </form>
+</div>

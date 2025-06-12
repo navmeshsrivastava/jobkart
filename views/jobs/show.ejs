@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="/css/jobs/show.css" />
+
+<div class="job-info">
+  <h1 class="job-header">Job for <%= job.role %></h1>
+
+  <div class="company-header">
+    <img
+      class="company-logo"
+      src="https://logo.clearbit.com/<%= job.company.toLowerCase().replace(/\s/g, '') %>.com"
+      alt="Company Logo"
+      onerror="this.src='https://via.placeholder.com/60'"
+    />
+    <h2><%= job.company %></h2>
+  </div>
+
+  <div class="job-section">
+    <div class="field">
+      <div class="label"><i class="fa-solid fa-bullhorn"></i> Status</div>
+      <div class="value"><%= job.status %></div>
+    </div>
+
+    <div class="field">
+      <div class="label"><i class="fa-solid fa-location-dot"></i> Location</div>
+      <div class="value">
+        <%= job.location %>
+        <span class="badge"
+          ><%= job.jobType === 'Remote' ? 'Remote' : 'On-site' %></span
+        >
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label">
+        <i class="fa-solid fa-indian-rupee-sign"></i> Salary
+      </div>
+      <div class="value" id="salary">
+        ₹<%= formatIndianCurrency(job.salary) %> / month
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label">
+        <i class="fa-solid fa-layer-group"></i> Skills Required
+      </div>
+      <div class="skills-container">
+        <% job.skills.forEach(skill => { %>
+        <span class="skill-badge"><%= skill %></span>
+        <% }); %>
+      </div>
+    </div>
+
+    <div class="field" style="grid-column: 1 / -1">
+      <div class="label">
+        <i class="fa-solid fa-align-left"></i> Description
+      </div>
+      <div class="value"><%= job.description %></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <% if (!currUser) { %>
+    <form action="/job/<%= job._id %>/apply" method="get">
+      <button type="submit" class="btn-primary">Login to Apply</button>
+    </form>
+    <% } else if (currUser.role === 'seeker') { %> <% if (alreadyApplied) { %>
+    <button class="btn-secondary" disabled>Applied</button>
+    <% } else { %> <% if(job.status === 'hiring') { %>
+    <form action="/job/<%= job._id %>/apply" method="get">
+      <button type="submit" class="btn-primary">Apply Now</button>
+    </form>
+    <% } else {%>
+    <button class="btn-secondary" disabled>Closed</button>
+    <% } %> <% } %> <% } %>
+  </div>
+</div>
+
+<% function formatIndianCurrency(num) { return
+Number(num).toLocaleString('en-IN'); } %>
+
+<script>
+  const salaryElement = document.getElementById('salary');
+  if (salaryElement) {
+    const salary = parseInt(
+      salaryElement.textContent.replace('₹', '').replace(/,/g, ''),
+      10
+    );
+    salaryElement.textContent = '₹' + formatSalary(salary) + ' / month';
+  }
+</script>

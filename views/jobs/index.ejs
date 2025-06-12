@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/css/jobs/index.css" />
+
+<section class="job-section">
+  <div class="job-section-header">
+    <h1 class="section-heading">Discover Your Dream Job</h1>
+    <p class="section-subheading" style="margin-top: 20px">
+      Browse the best opportunities for a fulfilling career ahead.
+    </p>
+  </div>
+
+  <% if (allJobs.length===0) { %>
+  <div class="no-jobs">
+    <i class="fa-regular fa-face-frown" style="color: #cbd5e1"></i>
+    <span>No jobs available at the current moment</span>
+  </div>
+  <% } else { %>
+  <div class="job-cards-wrapper">
+    <% for (let job of allJobs) { %>
+    <div class="job-card">
+      <div>
+        <div class="job-status">
+          <% if (job.status==='hiring' ) { %>
+          <i class="fa-solid fa-arrow-up" style="color: rgb(67, 255, 67)"></i>
+          <span class="job-status-hiring">Hiring</span>
+          <% } else { %>
+          <i class="fa-solid fa-times-circle" style="color: red"></i>
+          <span class="job-status-closed">Closed</span>
+          <% } %>
+        </div>
+
+        <h2 class="card-title"><%= job.role %></h2>
+        <div class="card-subtitle"><%= job.company %></div>
+      </div>
+
+      <div
+        class="job-type <%= job.jobType === 'Remote' ? '' : 'job-type-onsite' %>"
+      >
+        <%= job.jobType %>
+      </div>
+
+      <div class="card-text">
+        <i class="fa-solid fa-location-dot"></i>
+        <%= job.location %>
+      </div>
+
+      <div class="card-text">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        ₹<%= formatIndianCurrency(job.salary) %> / month
+      </div>
+
+      <div class="skills-wrapper">
+        <% let shownSkills=job.skills.slice(0, 3); %> <%
+        shownSkills.forEach(skill=> { %>
+        <span class="skill-chip"> <%= skill %> </span>
+        <% }); %> <% if (job.skills.length> 3) { %>
+        <span class="skill-chip">+<%= job.skills.length - 3 %> more</span>
+        <% } %>
+      </div>
+
+      <div class="job-footer">
+        <span class="category-chip">
+          <i class="fa-solid fa-tag"></i>
+          <%= job.category %>
+        </span>
+        <a href="/<%= job.category %>/<%= job._id %>" class="btn-view"
+          >View Details</a
+        >
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <% } %>
+</section>
+
+<% function formatIndianCurrency(num) { return
+Number(num).toLocaleString('en-IN'); } %>

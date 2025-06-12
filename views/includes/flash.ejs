@@ -1,0 +1,108 @@
+<!-- Success Message -->
+<% if(successMsg && successMsg.length) { %>
+<div
+  class="alert alert-success alert-dismissible fade show col-6 offset-3"
+  role="alert"
+  style="
+    background-color: #28a745;
+    color: white;
+    border: 2px solid #155724;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  "
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="bi bi-check-circle-fill me-3"
+      viewBox="0 0 16 16"
+      style="width: 28px; height: 28px; color: #ffffff"
+    >
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 10.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 1 0-1.06-1.06L7.5 8.439 6.03 6.97a.75.75 0 0 0-1.06 1.06l1.999 2z"
+      />
+    </svg>
+    <%= successMsg %>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+
+<% } %>
+
+<!-- Delete Message -->
+<% if(deleteMsg && deleteMsg.length) { %>
+<div
+  class="alert alert-danger alert-dismissible fade show col-6 offset-3"
+  role="alert"
+  style="
+    background-color: #dc3545;
+    color: white;
+    border: 2px solid #721c24;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  "
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="bi bi-trash-fill me-3"
+      viewBox="0 0 16 16"
+      style="width: 28px; height: 28px; color: #ffffff"
+    >
+      <path
+        d="M2.5 1a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1H15a.5.5 0 0 1 0 1h-.813l-.812 11.487A2 2 0 0 1 11.38 15H4.62a2 2 0 0 1-1.995-1.513L1.813 2H1a.5.5 0 0 1 0-1h1.5z"
+      />
+    </svg>
+    <%= deleteMsg %>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>
+
+<!-- Error Message -->
+<% if(errorMsg && errorMsg.length) { %>
+<div
+  class="alert alert-warning alert-dismissible fade show col-6 offset-3"
+  role="alert"
+  style="
+    background-color: #ffc107;
+    color: black;
+    border: 2px solid #856404;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  "
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="bi bi-exclamation-triangle-fill me-3"
+      viewBox="0 0 16 16"
+      style="width: 28px; height: 28px; color: #ffffff"
+    >
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+      />
+    </svg>
+    <%= errorMsg %>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>

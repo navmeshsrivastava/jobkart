@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css/users/profile.css" />
+
+<div class="profile-container">
+  <div class="logout-wrapper">
+    <form action="/auth/logout" method="get">
+      <button class="logout-btn" title="Logout">
+        Logout <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </form>
+  </div>
+
+  <div class="profile-header">
+    <h1>Welcome to your Profile</h1>
+  </div>
+
+  <div class="profile-grid">
+    <div class="profile-card">
+      <div class="label"><i class="fa-solid fa-user"></i> Username</div>
+      <div class="value"><%= user.username %></div>
+    </div>
+
+    <div class="profile-card">
+      <div class="label"><i class="fa-solid fa-phone"></i> Phone</div>
+      <div class="value">+<%= user.countryCode %> <%= user.phone %></div>
+    </div>
+
+    <div class="profile-card">
+      <div class="label"><i class="fa-solid fa-envelope"></i> Email</div>
+      <div class="value"><%= user.email %></div>
+    </div>
+
+    <div class="profile-card">
+      <div class="label"><i class="fa-solid fa-user"></i> Name</div>
+      <div class="value"><%= user.name %></div>
+    </div>
+
+    <div class="profile-card">
+      <% if (user.role === 'seeker') { %>
+      <div class="label">
+        <i class="fa-solid fa-briefcase"></i> Jobs Applied
+      </div>
+      <div class="value">
+        <%= user.appliedJobs.length %>
+        <a href="/user/<%= user._id %>" class="view-link" title="View">
+          <i class="fa-solid fa-eye"></i>
+        </a>
+      </div>
+      <% } else { %>
+      <div class="label">
+        <i class="fa-solid fa-clipboard-list"></i> Jobs Posted
+      </div>
+      <div class="value">
+        <%= user.postedJobs.length %>
+        <a href="/user/<%= user._id %>" class="view-link" title="View">
+          <i class="fa-solid fa-eye"></i>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>

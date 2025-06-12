@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/css/users/signup-form.css" />
+
+<div class="container">
+  <form
+    action="/auth/signup"
+    method="POST"
+    class="signup-wrapper needs-validation"
+    novalidate
+  >
+    <div class="form-heading">Create an account</div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        name="user[name]"
+        class="form-control"
+        placeholder="Full name"
+        required
+      />
+      <div class="invalid-feedback">Enter your full name</div>
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        name="user[username]"
+        class="form-control"
+        placeholder="Username"
+        required
+      />
+      <div class="invalid-feedback">Choose a username</div>
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="email"
+        name="user[email]"
+        class="form-control"
+        placeholder="Email"
+        required
+      />
+      <div class="invalid-feedback">Enter a valid email</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Phone Number</label>
+      <div class="d-flex">
+        <select
+          name="user[countryCode]"
+          class="form-select me-2"
+          style="width: 100px"
+          required
+        >
+          <option value="+91" selected>+91</option>
+        </select>
+        <div class="ms-4">
+          <input
+            type="tel"
+            name="user[phone]"
+            class="form-control"
+            placeholder="Enter phone number"
+            required
+            minlength="10"
+            pattern="[0-9]{10,}"
+            style="width: 20rem"
+          />
+          <div id="phoneError" class="invalid-feedback">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="password"
+        name="user[password]"
+        class="form-control"
+        placeholder="New password"
+        required
+      />
+      <div class="invalid-feedback">Create a password</div>
+    </div>
+
+    <div class="mb-3">
+      <select name="user[role]" class="form-select" required>
+        <option value="" disabled selected>I am a</option>
+        <option value="seeker">Job Seeker</option>
+        <option value="recruiter">Recruiter</option>
+      </select>
+      <div class="invalid-feedback">Please select a role</div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn-signup">Sign Up</button>
+    </div>
+  </form>
+</div>

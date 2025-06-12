@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="/css/jobs/job-applicants.css" />
+
+<div class="container">
+  <h1 class="section-title">Applicants for This Job</h1>
+  <% if(job.applicants.length === 0) { %>
+  <div class="no-job">
+    <p>
+      <i class="fa-solid fa-face-frown"></i> No applicant applied to this job
+      yet.
+    </p>
+  </div>
+  <% } %> <% job.applicants.forEach((applicant) => { %>
+  <div class="applicant-card">
+    <div class="info-row">
+      <div class="info-group">
+        <div class="info-label"><i class="fa-solid fa-user"></i> Username</div>
+        <div class="info-badge">@<i><%= applicant.user.username %></i></div>
+      </div>
+      <div class="info-group">
+        <div class="info-label">
+          <i class="fa-solid fa-clipboard-check"></i> Status
+        </div>
+        <div class="info-badge"><%= applicant.applicationStatus %></div>
+      </div>
+      <div class="info-group"></div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-group">
+        <div class="info-label"><i class="fa-solid fa-id-badge"></i> Name</div>
+        <div class="info-badge"><%= applicant.user.name %></div>
+      </div>
+      <div class="info-group">
+        <div class="info-label"><i class="fa-solid fa-envelope"></i> Email</div>
+        <div class="info-badge"><%= applicant.user.email %></div>
+      </div>
+      <div class="info-group">
+        <div class="info-label"><i class="fa-solid fa-phone"></i> Phone</div>
+        <div class="info-badge">
+          +<%= applicant.user.countrycode %> <%= applicant.user.phone %>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-group" style="flex: 1 1 100%">
+        <div class="info-label">
+          <i class="fa-solid fa-file-alt"></i> Resume
+        </div>
+        <a
+          class="resume-link"
+          href="<%= applicant.resumeLink.url %>"
+          target="_blank"
+          >📄 View Resume</a
+        >
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-group" style="flex: 1 1 100%">
+        <div class="info-label">
+          <i class="fa-solid fa-quote-left"></i> Reason for Applying
+        </div>
+        <div class="reason-box"><%= applicant.reason %></div>
+      </div>
+    </div>
+
+    <div class="action-btns">
+      <form
+        action="/job/<%= job._id %>/applicants/<%= applicant.user._id %>/accept?_method=PUT"
+        method="POST"
+        style="display: inline"
+      >
+        <button type="submit" class="action-btn accept-btn">ACCEPT</button>
+      </form>
+
+      <form
+        action="/job/<%= job._id %>/applicants/<%= applicant.user._id %>/reject?_method=PUT"
+        method="POST"
+        style="display: inline"
+      >
+        <button type="submit" class="action-btn reject-btn">REJECT</button>
+      </form>
+    </div>
+  </div>
+  <% }) %>
+</div>

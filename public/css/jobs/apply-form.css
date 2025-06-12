@@ -1,0 +1,121 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    margin: 0;
+    color: #e2e8f0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+  }
+
+  .apply-wrapper {
+    max-width: 600px;
+    background-color: #1e293b;
+    padding: 40px 30px;
+    border-radius: 20px;
+    margin: 50px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .apply-heading {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #a5b4fc;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .form-control,
+  .form-select {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .form-control::placeholder,
+  .form-select:invalid {
+    color: #94a3b8;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    background-color: #0f172a !important;
+    color: #f8fafc;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+    outline: none;
+  }
+
+  .form-label {
+    color: #e2e8f0;
+    margin-bottom: 6px;
+  }
+
+  .btn-apply {
+    width: auto;
+    background-color: #6b7cfa; 
+    color: #0f172a;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 30px; 
+    font-size: 1rem;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-apply:hover {
+    background-color: #4f5cc9;
+    transform: translateY(-2px);
+  }
+
+  .form-control[disabled] {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-control,
+  .form-select {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .form-control::placeholder,
+  .form-select:invalid {
+    color: #94a3b8;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    background-color: #0f172a !important;
+    color: #f8fafc;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+    outline: none;
+  }
+
+  @media (max-width: 767px) {
+    .container {
+      padding: 0 30px;
+    }
+  }

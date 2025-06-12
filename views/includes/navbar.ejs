@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/includes/navbar.css" />
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <i class="fa-solid fa-id-card fa-lg"></i>Jobkart
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item me-2">
+          <a class="nav-link" href="/"><i class="fa-solid fa-house"></i>Jobs</a>
+        </li>
+
+        <% if(currUser && currUser.role==='seeker') { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/<%= currUser._id %>">
+            <i class="fa-solid fa-briefcase"></i>Jobs Applied
+          </a>
+        </li>
+        <% } else if(currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/<%= currUser._id %>">
+            <i class="fa-solid fa-bullhorn"></i>Jobs Posted
+          </a>
+        </li>
+        <% } %>
+      </ul>
+
+      <ul class="navbar-nav ms-auto text-center">
+        <% if (currUser) { %>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center justify-content-center"
+            href="/user/my-profile"
+          >
+            <div class="rounded-icon">
+              <i class="fa-solid fa-user text-white"></i>
+            </div>
+          </a>
+        </li>
+        <% } else { %>
+        <li class="nav-item me-2">
+          <a class="nav-link" href="/auth/login">
+            <i class="fa-solid fa-right-to-bracket"></i>Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">
+            <i class="fa-solid fa-user-plus"></i>Signup
+          </a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

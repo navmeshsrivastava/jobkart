@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/jobs/apply-form.css" />
+
+<div class="container">
+  <form
+    action="/job/<%= jobId %>/apply"
+    method="POST"
+    class="apply-wrapper needs-validation"
+    enctype="multipart/form-data"
+    novalidate
+  >
+    <div class="apply-heading">Apply for this Job</div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        value="<%= currUser.name %>"
+        disabled
+      />
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="email"
+        class="form-control"
+        value="<%= currUser.email %>"
+        disabled
+      />
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        value="+<%= currUser.countryCode %> <%= currUser.phone %>"
+        disabled
+      />
+    </div>
+    <input type="hidden" name="user[user]" value="<%= currUser._id %>" />
+
+    <div class="mb-3">
+      <p style="margin-bottom: 2px; color: #94a3b8">Upload Resume (.pdf)</p>
+      <input
+        type="file"
+        name="user[resumeLink]"
+        class="form-control"
+        accept=".pdf,.odt"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <textarea
+        name="user[reason]"
+        class="form-control"
+        placeholder="Why are you applying for this job?"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn-apply">Submit</button>
+    </div>
+  </form>
+</div>

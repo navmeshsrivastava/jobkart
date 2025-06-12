@@ -1,0 +1,73 @@
+body {
+    background-color: #0f172a;
+}
+
+.edit-job-container {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: rgba(165, 180, 252, 0.08);
+    border-radius: 20px;
+    margin: 0.5rem;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(165, 180, 252, 0.25);
+}
+
+.edit-job-container h3 {
+    font-weight: 700;
+    color: #a5b4fc;
+    text-shadow: 1px 1px 10px rgba(165, 180, 252, 0.4);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #e0e7ff;
+}
+
+.form-control,
+.form-select {
+    background-color: rgba(165, 180, 252, 0.1);
+    color: #fff;
+    border: 1px solid rgba(165, 180, 252, 0.3);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(165, 180, 252, 0.12);
+    box-shadow: 0 0 0 0.2rem rgba(165, 180, 252, 0.25);
+    color: #ffffff;
+    border-color: #a5b4fc;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+}
+
+.form-select option {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.update-btn {
+    background: #a5b4fc;
+    color: #0f172a;
+    font-weight: 600;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.update-btn:hover {
+    background: #8b9ee6;
+}
+
+@media (max-width: 768px) {
+    .edit-job-container {
+        margin: 0.5rem;
+    }
+}
