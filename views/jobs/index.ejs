@@ -45,7 +45,7 @@
 
       <div class="card-text">
         <i class="fa-solid fa-money-bill-wave"></i>
-        ₹<%= formatIndianCurrency(job.salary) %> / month
+        ₹<%= job.salary %> / month
       </div>
 
       <div class="skills-wrapper">
@@ -71,6 +71,3 @@
   </div>
   <% } %>
 </section>
-
-<% function formatIndianCurrency(num) { return
-Number(num).toLocaleString('en-IN'); } %>

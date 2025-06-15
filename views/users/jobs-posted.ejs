@@ -30,8 +30,7 @@
       </div>
 
       <div class="salary">
-        <i class="fa-solid fa-sack-dollar me-1"></i> ₹<%=
-        formatIndianCurrency(job.salary) %> per month
+        <i class="fa-solid fa-sack-dollar me-1"></i> ₹<%= job.salary %> / month
       </div>
 
       <div class="applicants">
@@ -63,6 +62,3 @@
   </div>
   <% }); %> <% } %>
 </div>
-
-<% function formatIndianCurrency(num) { return
-Number(num).toLocaleString('en-IN'); } %>

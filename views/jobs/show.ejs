@@ -33,9 +33,7 @@
       <div class="label">
         <i class="fa-solid fa-indian-rupee-sign"></i> Salary
       </div>
-      <div class="value" id="salary">
-        ₹<%= formatIndianCurrency(job.salary) %> / month
-      </div>
+      <div class="value" id="salary">₹<%= job.salary %> / month</div>
     </div>
 
     <div class="field">
@@ -73,9 +71,6 @@
     <% } %> <% } %> <% } %>
   </div>
 </div>
-
-<% function formatIndianCurrency(num) { return
-Number(num).toLocaleString('en-IN'); } %>
 
 <script>
   const salaryElement = document.getElementById('salary');
