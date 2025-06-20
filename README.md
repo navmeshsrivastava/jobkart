@@ -7,6 +7,8 @@
 ## 📝 Overview
 
 JobKart is a full-stack web application that streamlines the job hiring process with clear role separation between **Recruiters** and **Job Seekers**. It features a secure authentication system, intuitive UI, and smooth workflows across the platform.
+Note: This is a fresh repository of my JobKart project. I had previously created and deployed this project, but decided to delete the old repo to clean up the codebase and start with a more organized and fresh version for better maintainability.
+
 
 As a BCA student exploring full-stack web development, I built this project to implement real-world concepts like session-based authentication, file handling, and role-specific access control.
 
